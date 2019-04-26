@@ -14,3 +14,11 @@
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('partner', function () {
+    return view('partner-management-dashboard.index-section');
+});
+
+Route::get('partner2', function () {
+    return view('partner-management-dashboard.product-section');
+});

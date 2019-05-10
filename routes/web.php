@@ -22,3 +22,10 @@ Route::get('partner', function () {
 Route::get('partner2', function () {
     return view('partner-management-dashboard.product-section');
 });
+
+Route::get('admin', function () {
+    return view('admin-dashboard.admin-index-section');
+});
+
+
+

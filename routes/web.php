@@ -15,6 +15,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+<<<<<<< HEAD
 /* Route::get('partner', function () {
   return view('partner-management-dashboard.index-section');
   });
@@ -82,4 +83,25 @@ Route::prefix('admin')->group(function() {
 
 Route::prefix('customer')->group(function() {
 
+=======
+/*Route::get('partner', function () {
+    return view('partner-management-dashboard.index-section');
+});
+
+Route::get('partner2', function () {
+    return view('partner-management-dashboard.product-section');
+});*/
+
+
+Route::prefix('partner')->group(function() {
+    
+});
+
+Route::prefix('admin')->group(function() {
+    
+});
+
+Route::prefix('customer')->group(function() {
+    
+>>>>>>> 7772994154dba001481b2c0c110353d37d0926ac
 });

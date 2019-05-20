@@ -44,12 +44,12 @@ Route::get('admin',[
 ]);
 
 Route::get('admin/add-partner',[
-    'as'=> 'getIndexAdmin',
+    'as'=> 'adminAddPartner',
     'uses'=> 'AdminController@addPartner',
 ]);
 
 Route::get('admin/delete-partner{partnerId}',[
-    'as'=> 'getIndexAdmin',
+    'as'=> 'adminDeletePartner',
     'uses'=> 'AdminController@deletePartner',
 ]);
 

@@ -25,7 +25,10 @@
         @include('partner-management-dashboard.components.header')
         <!-- main content -->
         @yield('index-section-content')
-        @yield('product-section-content')
+        @yield('vehicle-section-content')
+        @yield('account-section-content')
+        @yield('add-vehicle-section-content'
+        @yield('edit-section-content')
         <!-- footer -->
         @include('partner-management-dashboard.components.footer')
     </div>

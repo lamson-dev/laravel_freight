@@ -27,7 +27,7 @@
         @yield('index-section-content')
         @yield('vehicle-section-content')
         @yield('account-section-content')
-        @yield('add-vehicle-section-content'
+        @yield('add-vehicle-section-content')
         @yield('edit-section-content')
         <!-- footer -->
         @include('partner-management-dashboard.components.footer')

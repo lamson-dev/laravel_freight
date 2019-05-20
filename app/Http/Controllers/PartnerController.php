@@ -23,7 +23,14 @@ class PartnerController extends Controller {
     public function getVehicleView() {
         return view('partner-management-dashboard.vehicle-section');
     }
-
+    
+    public function getAccountView() {
+        return view('partner-management-dashboard.account-section');
+    }
+    
+    public function getAddVehicleView() {
+        return view('partner-management-dashboard.add-vehicle-section');
+    }
     /**
      * Show the form for creating a new resource.
      *

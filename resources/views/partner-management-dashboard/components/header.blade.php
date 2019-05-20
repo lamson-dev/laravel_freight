@@ -1,7 +1,7 @@
 
 <nav class="navbar navbar-expand-xl">
     <div class="container h-100">
-        <a class="navbar-brand" href="{{route('getIndex')}}">
+        <a class="navbar-brand" href="{{route('getIndexPartner')}}">
             <h1 class="tm-site-title mb-0">Management Partner</h1>
         </a>
         <button class="navbar-toggler ml-auto mr-0" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
@@ -34,14 +34,14 @@
                     </div>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{{route('vehicle')}}">
+                    <a class="nav-link" href="{{route('partnerVehicle')}}">
                         <i class="fa fa-car"></i>
                         Vehicles
                     </a>
                 </li>
 
                 <li class="nav-item">
-                    <a class="nav-link" href="accounts.html">
+                    <a class="nav-link" href="{{route('partnerAccount')}}">
                         <i class="far fa-user"></i>
                         Accounts
                     </a>

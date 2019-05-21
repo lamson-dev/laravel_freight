@@ -94,6 +94,15 @@
             <span class="nav-link-text">Link</span>
           </a>
         </li>
+<<<<<<< HEAD
+=======
+        <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Link">
+          <a class="nav-link" href="#">
+            <i class="fa fa-fw fa-link"></i>
+            <span class="nav-link-text">Managing Partners</span>
+          </a>
+        </li>
+>>>>>>> master
       </ul>
       <ul class="navbar-nav sidenav-toggler">
         <li class="nav-item">

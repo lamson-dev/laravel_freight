@@ -1,5 +1,5 @@
 @extends('partner-management-dashboard.partner-index')
-@section('product-section-content')
+@section('vehicle-section-content')
 <div class="container mt-5">
   <div class="row tm-content-row">
     <div class="col-sm-12 col-md-12 col-lg-8 col-xl-8 tm-block-col">
@@ -154,7 +154,7 @@
         </div>
         <!-- table container -->
         <a
-          href="add-product.html"
+          href="{{route('partnerAddVehicle')}}"
           class="btn btn-primary btn-block text-uppercase mb-3">Add new product</a>
         <button class="btn btn-primary btn-block text-uppercase">
           Delete selected products

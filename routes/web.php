@@ -46,6 +46,30 @@ Route::get('partner/g-vehicle',[
     'uses'=>'PartnerController@getAddVehicleView'
 ]);
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Route::post('partner/add-vehicle',[
+   'as'=>'partnerInsertVehicle',
+    'uses'=>'PartnerController@addVehicle'
+]);
+
 //Route::post('partner/insert-vehicle',[
 //   'as'=>'partnerInsertVehicle',
 //    'uses'=>'PartnerController@addVehicle'

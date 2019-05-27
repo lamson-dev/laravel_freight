@@ -1,0 +1,50 @@
+.block_services {
+    background: rgb(0, 0, 0);
+    border-radius: 10px;
+    padding: 10px 0;
+    color: #fff;
+    border: 1px solid rgb(0, 0, 0);
+    margin-bottom: 10px;
+}
+
+.bg_contact {
+    
+    background-image: url("images/demo/tuvan.jpg");
+}
+
+.kmt_title_left {
+    font-size: 14px;
+    font-weight: 700;
+    text-align: center;
+    background: rgb(0, 0, 0);
+    border-radius: 10px;
+    padding: 10px 0;
+    margin: 0 15px 10px 15px;
+}
+.col-md-12{
+    position: relative;
+    min-height: 1px;
+    padding-left: 5px;
+    padding-right: 5px;
+}
+.img_block_services {
+    float: left;
+    margin-right: 5px;
+    width: 20%;
+    text-align: right;
+    margin-left: 10px;
+}
+/* .title_block_services {
+    width: 70%;
+    float: left;
+    font-size: 13px;
+    height: auto;
+    line-height: 15px;
+    text-align: left;
+} */
+.block_services  img {
+    vertical-align: middle;
+}
+.block_services p {
+    color: black;
+}

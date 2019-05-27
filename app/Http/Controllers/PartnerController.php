@@ -3,11 +3,10 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class PartnerController extends Controller {
 
-    
-    
     /**
      * Display a listing of the resource.
      *
@@ -15,22 +14,71 @@ class PartnerController extends Controller {
      */
     public function index() {
         //
-       // return view ('welcome');
+        // return view ('welcome');
         return view('partner-management-dashboard.index-section');
         //return view('partner-management-dashboard.index-section');
     }
-    
+
     public function getVehicleView() {
-        return view('partner-management-dashboard.vehicle-section');
+        $vehicle_type = DB::table('type_vehicles')->select('type')->get();
+        $vehicle = DB::table('vehicles')->get();
+        return view('partner-management-dashboard.vehicle-section', [
+            'vehicle_type' => $vehicle_type,
+            'vehicle' => $vehicle
+        ]);
     }
-    
+
     public function getAccountView() {
         return view('partner-management-dashboard.account-section');
     }
-    
+
     public function getAddVehicleView() {
-        return view('partner-management-dashboard.add-vehicle-section');
+        $vehicle_type = DB::table('type_vehicles')->get();
+        //temp
+        $partner = DB::table('partners')->get();
+        return view('partner-management-dashboard.add-vehicle-section', [
+            'vehicle_type' => $vehicle_type,
+            'partner' => $partner
+        ]);
     }
+
+    public function addVehicle(Request $request) {
+        $name = $request->input('vehicle_brand');
+        $des = $request->input('description');
+        $type = $request->input('typeVehicle');
+        $partner = $request->input('Partner');
+        $image = "";
+        DB::table('vehicles')->insert(
+                [
+                    'brand' => $name,
+                    'partID' => $partner,
+                    'description' => $des,
+                    'type_vehicleID' => $type,
+                    'image' => $image
+                ]
+        );
+        return back();
+    }
+
+    public function getAddVehicleTypeView() {
+        return view('partner-management-dashboard.add-vehicle-type-section');
+    }
+
+    public function addVehicleType(Request $request) {
+        $vehicle = $request->input('typeVehicle');
+        DB::table('type_vehicles')->insert(
+                ['type' => $vehicle]
+        );
+        return back();
+    }
+
+    public function getVehicleType() {
+        $vehicle_type = DB::table('type_vehicles')->get();
+        return view('partner-management-dashboard.vehicle-section', [
+            'vehicle_type' => $vehicle_type
+        ]);
+    }
+
     /**
      * Show the form for creating a new resource.
      *

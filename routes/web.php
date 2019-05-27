@@ -11,6 +11,9 @@
   |
  */
 
+
+
+
 Route::group(['prefix' => 'user'], function () {
 
     Route::get('index', [

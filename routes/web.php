@@ -11,8 +11,17 @@
   |
  */
 
-Route::get('/', function () {
-    return view('welcome');
+Route::group(['prefix' => 'user'], function () {
+
+    Route::get('index', [
+        'as' => 'selectType',
+        'uses' => 'CustomerController@selectType'
+    ]);
+
+    Route::get('calculate', [
+        'as' => 'user/calculate',
+        'uses' => 'CustomerController@calculateFee'
+    ]);
 });
 
 //routes of Partner

@@ -22,11 +22,9 @@
               <li><a href="#">Trucks</a></li>
               <!-- <li><a href="#">Navigation - Level 2</a> -->
                 <ul>
-                  <li><a href="#">Truck 500 KG</a></li>
-                  <li><a href="#">Truck 750 KG</a></li>
-                  <li><a href="#">Truck 1 Ton</a></li>
-                  <li><a href="#">Truck 1.5 Ton</a></li>
-                  <li><a href="#">Truck 2 Tons</a></li>
+                @foreach($TypeVehicle as $type)
+                  <li><a href="#">{{$type['type']}}</a></li>
+                @endforeach
                 </ul>
                 <li><a href="#">Cars</a></li>
           <li><a href="#">Rickshaw</a></li>
@@ -39,7 +37,7 @@
 
 <!-- ################################################### -->
     <div class="sdb_holder">
-        <div class="block_services bg_contact" style="background-image: url('{!! url ('.././public/user_style/images/demo/tuvan.jpg') !!}')">
+        <div class="block_services bg_contact" style="background-image: url('{{!! url ('.././public/user_style/images/demo/tuvan.jpg') !!}}')">
           <h3 class="kmt_title_left">
           CUSTOMER SERVICES
             </h3>

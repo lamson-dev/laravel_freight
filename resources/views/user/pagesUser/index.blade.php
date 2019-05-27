@@ -9,7 +9,7 @@
             <div class="item">
                 <div class="imgTitle">
                     <h2 class="blogTitle">House Transfer</h2>
-                    <img src="{!! ('../../public/user_style/images/demo/slide/houses.jpg') !!}" alt="" />
+                    <img src="{{asset('user_style/images/demo/slide/houses.jpg')}}" alt="" />
                 </div>
                 <p>Not everyone can move their own house because it will take a lot of time and effort. Moreover, you do not have 
                   modern equipment dedicated to transporting large quantities of furniture to where you need it...</p>
@@ -18,7 +18,7 @@
             <div class="item">
                 <div class="imgTitle">
                     <h2 class="blogTitle">Moving Office</h2>
-                    <img src="{!! ('../../public/user_style/images/demo/slide/off.jpg') !!}" alt="" />
+                    <img src="{{asset('user_style/images/demo/slide/off.jpg')}}" alt="" />
                 </div>
                 <p>For a company, when it is necessary to move offices to a new location, it will take a long time to arrange large-sized documents and items: 
                   tables, chairs, machines, ... and especially, if the company have rules ...</p>
@@ -27,7 +27,7 @@
             <div class="item">
                 <div class="imgTitle">
                     <h2 class="blogTitle">Warehouse transfer</h2>
-                    <img src="{!! ('../../public/user_style/images/demo/slide/house.jpg') !!}" alt="" />
+                    <img src="{{asset('user_style/images/demo/slide/house.jpg') }}" alt="" />
                 </div>
                 <p>You do not have to spend much time waiting, the professional counselor will quote quickly after catching some basic information. 
                   Especially with a staff of specialized electrical engineering, refrigeration, ...</p>
@@ -36,7 +36,7 @@
             <div class="item">
                 <div class="imgTitle">
                     <h2 class="blogTitle">Quality Assurance</h2>
-                    <img src="{!! ('../../public/user_style/images/demo/slide/maylanh.jpg') !!}" alt="" />
+                    <img src="{{asset('user_style/images/demo/slide/maylanh.jpg') }}" alt="" />
                 </div>
                 <p>No need to worry about shipping losses, we have professional workers in the field of 
                   refrigeration, furniture and they are very customer friendly... Besides, the things that cover your goods are also fully guaranteed...</p>
@@ -67,10 +67,10 @@
 </div>
 
     <!-- Include jQuery -->
-    <script src="{!! ('../../public/multislider/js/jquery-2.2.4.min.js')!!}"></script>
+    <script src="{{asset('multislider/js/jquery-2.2.4.min.js')}}"></script>
 
     <!-- Include Multislider -->
-    <script src="{!! ('../../public/multislider/js/multislider.min.js')!!}"></script>
+    <script src="{{asset('multislider/js/multislider.min.js')}}"></script>
 
     <!-- Initialize element with Multislider -->
     <script>

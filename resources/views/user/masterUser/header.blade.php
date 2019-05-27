@@ -29,7 +29,7 @@
     <nav id="mainav" class="fl_right"> 
       <!-- ################################################################################################ -->
       <ul class="clear">
-        <li class="active"><a href="index.html">Home</a></li>
+        <li class="active"><a href="">Home</a></li>
         <li><a class="drop" href="#">Services</a>
           <ul>
             <li><a href="#"> House transfer</a></li>

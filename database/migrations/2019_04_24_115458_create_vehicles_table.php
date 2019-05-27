@@ -21,6 +21,7 @@ class CreateVehiclesTable extends Migration
             $table->string('description',255);
             $table->unsignedBigInteger('type_vehicleID');
             $table->foreign('type_vehicleID')->references('type_vehicleID')->on('type_vehicles');
+            $table->float('price',255);
             $table->string('image',255);
             $table->timestamps();
         });

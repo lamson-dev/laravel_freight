@@ -22,11 +22,9 @@
               <li><a href="#">Trucks</a></li>
               <!-- <li><a href="#">Navigation - Level 2</a> -->
                 <ul>
-                  <li><a href="#">Truck 500 KG</a></li>
-                  <li><a href="#">Truck 750 KG</a></li>
-                  <li><a href="#">Truck 1 Ton</a></li>
-                  <li><a href="#">Truck 1.5 Ton</a></li>
-                  <li><a href="#">Truck 2 Tons</a></li>
+                @foreach($TypeVehicle as $type)
+                  <li><a href="#">{{$type['type']}}</a></li>
+                @endforeach
                 </ul>
                 <li><a href="#">Cars</a></li>
           <li><a href="#">Rickshaw</a></li>

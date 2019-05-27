@@ -45,12 +45,9 @@
             <li><a href="#">Cars</a></li>
             <li><a class="drop" href="#">Trucks</a>
               <ul>
-                <li><a href="#">500 Kg</a></li>
-                <li><a href="#">750 Kg</a></li>
-                <li><a href="#">1 Ton</a></li>
-                <li><a href="#">1.5 Ton</a></li>
-                <li><a href="#">1.9 Ton</a></li>
-                <li><a href="#">2 Tons</a></li>
+              @foreach($TypeVehicle as $type)
+                <li><a href="#">{{$type['type']}}</a></li>
+                @endforeach
               </ul>
             </li>
             <li><a href="#">Rickshaw</a></li>

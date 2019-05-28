@@ -11,8 +11,21 @@
   |
  */
 
+
 Route::get('/', function () {
-    return view('welcome');
+    return view('user.pagesUser.index');
+});
+Route::group(['prefix' => 'user'], function () {
+
+    Route::get('index', [
+        'as' => 'selectType',
+        'uses' => 'CustomerController@selectType'
+    ]);
+
+    Route::get('calculate', [
+        'as' => 'user/calculate',
+        'uses' => 'CustomerController@calculateFee'
+    ]);
 });
 
 //routes of Partner
@@ -31,11 +44,49 @@ Route::get('partner/account',[
   'uses'=>'PartnerController@getAccountView'
 ]);
 
-Route::get('partner/add-vehicle',[
-   'as'=>'partnerAddVehicle',
+Route::get('partner/g-vehicle-type',[
+    'as'=>'partnerAddVehicleType',
+    'uses'=>'PartnerController@getAddVehicleTypeView'
+]);
+
+Route::post('partner/add-vehicle-type',[
+   'as'=>'partnerInsertVehicleType',
+    'uses'=>'PartnerController@addVehicleType'
+]);
+
+Route::get('partner/g-vehicle',[
+'as'=>'partnerAddVehicle',
     'uses'=>'PartnerController@getAddVehicleView'
 ]);
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Route::post('partner/add-vehicle',[
+   'as'=>'partnerInsertVehicle',
+    'uses'=>'PartnerController@addVehicle'
+]);
+
+//Route::post('partner/insert-vehicle',[
+//   'as'=>'partnerInsertVehicle',
+//    'uses'=>'PartnerController@addVehicle'
+//]);
 //routes of Admin
 
 Route::get('admin',[
@@ -53,16 +104,3 @@ Route::get('admin/delete-partner{partnerId}',[
     'uses'=> 'AdminController@deletePartner',
 ]);
 
-<<<<<<< HEAD
-Route::get('partner2', function () {
-    return view('partner-management-dashboard.product-section');
-});
-
-Route::get('admin', function () {
-    return view('admin-dashboard.admin-index-section');
-});
-
-
-
-=======
->>>>>>> master

@@ -24,16 +24,16 @@ Route::group(['prefix' => 'user'], function () {
         'uses' => 'CustomerController@calculateFee'
     ]);
 
-    Route::get('showdetail/vehicle/{vehicleID}/distance/{distance}', [
-        'as' => 'show',
-        'uses' => 'CustomerController@showDetail'
-    ]);
-
-    Route::post('bookservice', [
-        'as' => 'book',
-        'uses' => 'CustomerController@bookService'
-    ]);
-
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
 });
 
 //routes of Partner

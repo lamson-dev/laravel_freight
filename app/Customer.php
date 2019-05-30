@@ -10,4 +10,3 @@ class Customer extends Model
     protected $fillable = ['custID', 'name','phone_number','address','email'];
     public $timestamps = True; //thiet lap
 }
-}

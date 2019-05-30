@@ -1,5 +1,5 @@
 <?php
-
+use Illuminate\Support\Facades\Hash;
 /*
   |--------------------------------------------------------------------------
   | Web Routes
@@ -102,12 +102,67 @@ Route::get('admin',[
     'uses'=> 'AdminController@index',
 ]);
 
+Route::get('admin/managing-partner',[
+  'as' => 'adminManagingPartner',
+  'uses' => 'AdminController@getAddPartner'  
+]);
+
+Route::post('admin/add-partner',[
+    'as'=> 'adminAddPartner',
+    'uses'=> 'AdminController@postAddPartner'
+]);
+//thiet:admin partner
 Route::get('admin/add-partner',[
     'as'=> 'adminAddPartner',
     'uses'=> 'AdminController@addPartner',
+
 ]);
 
 Route::get('admin/delete-partner{partnerId}',[
     'as'=> 'adminDeletePartner',
-    'uses'=> 'AdminController@deletePartner',
+
+    'uses'=> 'AdminController@deletePartner'  
 ]);
+
+Route::get('admin/list-partner',[
+    'as'=> 'adminListPartner',
+    'uses'=> 'AdminController@getListPartner'
+]);
+
+
+//login
+Route::get('admin/login',[
+    'as'=> 'getLoginAdmin',
+    'uses'=> 'AdminController@getLoginAdmin'
+]);
+
+Route::post('admin/login',[
+    'as'=> 'postLoginAdmin',
+    'uses'=> 'AdminController@postLoginAdmin'
+]);
+
+//logout
+Route::get('admin/logout',[
+    'as'=> 'getLogoutAdmin',
+    'uses'=> 'AdminController@logout'
+]);
+
+
+// Delete partners
+Route::get('delete/{partID}',[
+    'as'  => 'getDeletePartner',
+    'uses'  => 'AdminController@getDeletePartner'
+]);
+// });
+
+
+
+
+// TEST HASH PASSWORD
+Route::get('hash/{password}',[
+    'as'  => 'testHash',
+    function($password) {
+      return Hash::make($password);
+    }
+]);
+

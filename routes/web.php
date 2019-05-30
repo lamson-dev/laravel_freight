@@ -23,6 +23,7 @@ Route::group(['prefix' => 'user'], function () {
         'as' => 'user/calculate',
         'uses' => 'CustomerController@calculateFee'
     ]);
+<<<<<<< HEAD
 
     Route::get('showdetail/vehicle/{vehicleID}/distance/{distance}', [
         'as' => 'show',
@@ -34,6 +35,19 @@ Route::group(['prefix' => 'user'], function () {
         'uses' => 'CustomerController@bookService'
     ]);
 
+=======
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+>>>>>>> origin
 });
 
 //routes of Partner

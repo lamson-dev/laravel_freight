@@ -86,7 +86,6 @@ Route::get('partner/g-vehicle',[
 
 
 
-
 Route::post('partner/add-vehicle',[
    'as'=>'partnerInsertVehicle',
     'uses'=>'PartnerController@addVehicle'
@@ -96,10 +95,7 @@ Route::post('partner/add-vehicle',[
 //   'as'=>'partnerInsertVehicle',
 //    'uses'=>'PartnerController@addVehicle'
 //]);
-
 //routes of Admin
-
-//Route::group(['prefix' => 'admin','middleware'=>'adminLogin'], function () {
 
 Route::get('admin',[
     'as'=> 'getIndexAdmin',
@@ -115,6 +111,7 @@ Route::post('admin/add-partner',[
     'as'=> 'adminAddPartner',
     'uses'=> 'AdminController@postAddPartner'
 ]);
+//thiet:admin partner
 Route::get('admin/add-partner',[
     'as'=> 'adminAddPartner',
     'uses'=> 'AdminController@addPartner',
@@ -131,6 +128,7 @@ Route::get('admin/list-partner',[
     'as'=> 'adminListPartner',
     'uses'=> 'AdminController@getListPartner'
 ]);
+
 
 //login
 Route::get('admin/login',[
@@ -167,3 +165,4 @@ Route::get('hash/{password}',[
       return Hash::make($password);
     }
 ]);
+

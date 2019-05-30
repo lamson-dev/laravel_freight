@@ -1,14 +1,94 @@
 <?php
 
 namespace App\Http\Controllers;
-
+// use Request;
+use App\Http\Requests\bookrequest;
 use Illuminate\Http\Request;
 use App\TypeVehicle;
 use App\Vehicle;
+use App\Customer;
+use App\Bill;
+use App\BillDetail;
+
 use DB;
 
 class CustomerController extends Controller
 {
+
+
+
+    public function selectType(){
+        $TypeVehicle = TypeVehicle::select('type_vehicleID','type')->get()->toArray();
+        return view('user.pagesUser.index', compact('TypeVehicle'));
+    } 
+    public function selectTypeintoHeader(){
+        $TypeVehicle = TypeVehicle::select('type_vehicleID','type')->get()->toArray();
+        return view('user.masterUser.header', compact('TypeVehicle'));
+    }
+    public function selectTypeintoleft(){
+        $TypeVehicle = TypeVehicle::select('type_vehicleID','type')->get()->toArray();
+        return view('user.masterUser.menu-left', compact('TypeVehicle'));
+    }
+
+    public function calculateFee(Request $request){
+        $Type = $request->Type;
+        $distance = $request->distance;
+        $Vehicle = DB::table('Vehicles')
+                     ->select('vehicleID', 'brand','partID','description','type_vehicleID','price','image')
+                     ->where('type_vehicleID', $Type)
+                     ->get()->toArray();
+        $array = Array();
+        foreach($Vehicle as $key =>$vehicle){
+        $a = Array(($vehicle->price * $distance));
+           $array[$key] = $a;
+            
+        }
+       return view('User.masterUser.tableFee',compact('Vehicle','distance','Type'));
+    }
+
+    public function showDetail($vehicleID,$distance){
+
+        $TypeVehicle = TypeVehicle::select('type_vehicleID','type')->get()->toArray();
+        $vehicle = DB::table('Vehicles')
+                     ->select('vehicleID', 'brand','partID','description','type_vehicleID','price','image')
+                     ->where('vehicleID', $vehicleID)
+                     ->get()->toArray();
+        $vehicle_img = DB::table('Vehicles')
+                     ->select('image')
+                     ->where('vehicleID', $vehicleID)
+                     ->get()->toArray();
+        return view('user.pagesUser.detail', compact('TypeVehicle','vehicle','vehicle_img','distance'));
+    }
+    public function bookService(Request $req){
+
+        $customer = new Customer;
+        $customer->name = $req->name;
+        $customer->phone_number = $req->phone;
+        $customer->email = "huong.nguyen@gmail.com";
+        $customer->address = $req->address;
+        $customer->save();
+       
+        $bill = new Bill;
+        $bill->date = $req->Date;
+        $bill->feedback = "";
+        $bill->note = $req->note;
+        $bill->custID = $customer->id;
+        $bill->save();
+    
+        $bill_detail = new BillDetail;
+      
+        $bill_detail->price = $req->price;
+        $bill_detail->quantity = 1;
+        $bill_detail->distance = $req->klmet;
+        $bill_detail->begin_journey = $req->Starting;
+        $bill_detail->end_journey = $req->ending;
+        $bill_detail->billID = $bill->id;
+        $bill_detail->save();
+        
+        $TypeVehicle = TypeVehicle::select('type_vehicleID','type')->get()->toArray();
+        return view('user.pagesUser.index', compact('TypeVehicle'));
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -85,35 +165,6 @@ class CustomerController extends Controller
         //
     }
 
-    public function selectType(){
-        $TypeVehicle = TypeVehicle::select('type_vehicleID','type')->get()->toArray();
-        return view('user.pagesUser.index', compact('TypeVehicle'));
-    } 
-    public function selectTypeintoHeader(){
-        $TypeVehicle = TypeVehicle::select('type_vehicleID','type')->get()->toArray();
-        return view('user.masterUser.header', compact('TypeVehicle'));
-    }
-    public function selectTypeintoleft(){
-        $TypeVehicle = TypeVehicle::select('type_vehicleID','type')->get()->toArray();
-        return view('user.masterUser.menu-left', compact('TypeVehicle'));
-    }
-
-    public function calculateFee(Request $request){
-        $Type = $request->Type;
-        $distance = $request->distance;
-        $Vehicle = DB::table('Vehicles')
-                     ->select('vehicleID', 'brand','partID','description','type_vehicleID','price','image')
-                     ->where('type_vehicleID', $Type)
-                     ->get()->toArray();
-        $array = Array();
-        foreach($Vehicle as $key =>$vehicle){
-        $a = Array(($vehicle->price * $distance));
-           $array[$key] = $a;
-            
-        }
-        
-       
-       return view('User.masterUser.tableFee',compact('Vehicle','distance'));
-    }
+    
 
 }

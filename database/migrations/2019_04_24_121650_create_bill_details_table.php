@@ -15,12 +15,13 @@ class CreateBillDetailsTable extends Migration
     {
         Schema::create('bill_details', function (Blueprint $table) {
             $table->bigIncrements('bill_deID');
-            $table->decimal('price', 8, 2);
+            $table->integer('price');
             $table->integer('quantity');
+            $table->integer('distance');
             $table->string('begin_journey',255);
             $table->string('end_journey',255);
-            $table->unsignedBigInteger('custID');
-            $table->foreign('custID')->references('custID')->on('customers');
+            $table->unsignedBigInteger('billID');
+            $table->foreign('billID')->references('billID')->on('bills');
             $table->timestamps();
         });
     }

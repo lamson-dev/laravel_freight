@@ -11,6 +11,7 @@ use Illuminate\Support\Facades\Hash;
   |
  */
 
+
 Route::group(['prefix' => 'user'], function () {
 
     Route::get('index', [
@@ -22,6 +23,17 @@ Route::group(['prefix' => 'user'], function () {
         'as' => 'user/calculate',
         'uses' => 'CustomerController@calculateFee'
     ]);
+
+    Route::get('showdetail/vehicle/{vehicleID}/distance/{distance}', [
+        'as' => 'show',
+        'uses' => 'CustomerController@showDetail'
+    ]);
+
+    Route::post('bookservice', [
+        'as' => 'book',
+        'uses' => 'CustomerController@bookService'
+    ]);
+
 });
 
 //routes of Partner

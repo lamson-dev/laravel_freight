@@ -12,9 +12,6 @@
  */
 
 
-Route::get('/', function () {
-    return view('user.pagesUser.index');
-});
 Route::group(['prefix' => 'user'], function () {
 
     Route::get('index', [
@@ -26,6 +23,17 @@ Route::group(['prefix' => 'user'], function () {
         'as' => 'user/calculate',
         'uses' => 'CustomerController@calculateFee'
     ]);
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
 });
 
 //routes of Partner

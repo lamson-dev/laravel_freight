@@ -111,4 +111,3 @@ Route::get('admin/delete-partner{partnerId}',[
     'as'=> 'adminDeletePartner',
     'uses'=> 'AdminController@deletePartner',
 ]);
-

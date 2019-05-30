@@ -94,6 +94,7 @@
 @endsection
 
 @section('content')
+
 <div class="content three_quarter">
         <div>
         <form style="text-align:center; padding-bottom: 10px; margin-top: 10px; margin-bottom:10px; -webkit-box-shadow: 0 0 3px 0 rgba(50,50,50,.5); -moz-box-shadow: 0 0 3px 0 rgba(50,50,50,.5);
@@ -109,7 +110,11 @@
             <p style="font-size:20px; color:#3ac551; margin-top:15px; font-weight:bold;">Select the type of payload</p>
             <p style="font-size:15px; color:#333333; font-weight:bold; margin: 0 0 10px;" >
             @foreach($TypeVehicle as $type)
-            <input style = 'margin-left: 270px;' type="radio" id="truck" name="truck" value="{{$type['type_vehicleID']}}"> {{$type['type']}} </input>
+            <div class="form-check">
+            <label class="form-check-label">
+              <input style = 'margin-left: 270px;' type="radio" class="form-check-input" name="truck" value="{{$type['type_vehicleID']}}"> {{$type['type']}}
+            </label>
+            </div>
             @endforeach
           </p>
           <!-- 
@@ -118,7 +123,7 @@
           <button  type = "button" style='padding: 2px 15px 5px 15px;background: #b12d2d; color:#ffffff;  margin-left: 330px' onclick="calculateFee()">Calculate Fee</button>
           </form> 
         </div>
-          <h1 style='margin-top: 20px'> 1. Freight rates for renting trucks and moving houses and offices</h1>
+          
           <div class="scrollable" id="tablefee">
 
           </div>
@@ -221,6 +226,4 @@
   </main>
 </div>
 
-
-</script>
 @endsection

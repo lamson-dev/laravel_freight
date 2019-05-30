@@ -3,7 +3,7 @@
     <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
-    <div class="collapse navbar-collapse" id="navbarResponsive">
+    <div class="collapse navbar-collapse navbar-header" id="navbarResponsive">
       <ul class="navbar-nav navbar-sidenav" id="exampleAccordion">
         <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Dashboard">
           <a class="nav-link" href="index.html">
@@ -94,15 +94,13 @@
             <span class="nav-link-text">Link</span>
           </a>
         </li>
-<<<<<<< HEAD
-=======
+
         <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Link">
           <a class="nav-link" href="#">
             <i class="fa fa-fw fa-link"></i>
             <span class="nav-link-text">Managing Partners</span>
           </a>
         </li>
->>>>>>> master
       </ul>
       <ul class="navbar-nav sidenav-toggler">
         <li class="nav-item">
@@ -202,8 +200,27 @@
           </form>
         </li>
         <li class="nav-item">
-          <a class="nav-link" data-toggle="modal" data-target="#exampleModal" href="{{route('getLogoutAdmin')}}">
+          <!-- <ul class="nav navbar-top-links navbar-right">
+            <li class="dropdown">
+              <a href="" class="dropdown-toggle" data-toggle="dropdown">
+                <i class="fa fa-user fa-fw"></i> --> <!-- <i class="fa fa-caret-down"></i> -->
+           <!--    </a>
+
+          <ul class="dropdown-menu dropdown-user">
+            <li>
+              <a href="#"><i class="fa fa-user fa-fw"></i>Thiet</a>
+            </li>
+            <li>
+              <a href="#"><i class="fa fa-user fa-fw"></i>Settings</a>
+            </li>
+            <li class="divider"></li>
+            <li> --><a class="nav-link"  href="{{route('getLogoutAdmin')}}">
             <i class="fa fa-fw fa-sign-out"></i>Logout</a>
+            <!-- </li>
+          </ul>
+          </li>
+          </ul> -->
+          
         </li>
       </ul>
     </div>

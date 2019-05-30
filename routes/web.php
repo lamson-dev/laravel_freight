@@ -1,7 +1,5 @@
 <?php
-
 use Illuminate\Support\Facades\Hash;
-
 /*
   |--------------------------------------------------------------------------
   | Web Routes
@@ -89,6 +87,8 @@ Route::post('partner/add-vehicle',[
 
 //routes of Admin
 
+//Route::group(['prefix' => 'admin','middleware'=>'adminLogin'], function () {
+
 Route::get('admin',[
     'as'=> 'getIndexAdmin',
     'uses'=> 'AdminController@index',
@@ -102,7 +102,7 @@ Route::get('admin/managing-partner',[
 Route::post('admin/add-partner',[
     'as'=> 'adminAddPartner',
     'uses'=> 'AdminController@postAddPartner'
-=======
+]);
 Route::get('admin/add-partner',[
     'as'=> 'adminAddPartner',
     'uses'=> 'AdminController@addPartner',
@@ -143,6 +143,7 @@ Route::get('delete/{partID}',[
     'as'  => 'getDeletePartner',
     'uses'  => 'AdminController@getDeletePartner'
 ]);
+// });
 
 
 

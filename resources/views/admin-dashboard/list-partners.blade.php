@@ -35,7 +35,9 @@
                   	<td>{!! $value["phone_number"] !!}</td>
                   	<td>{!! $value["address"] !!}</td>
                   	<td>{!! $value["email"] !!}</td>
-                  	<td>{!! $value["logoImage"] !!}</td>
+                    <td>
+                  	<img src="{!! asset('data/images/images_partner/'.$value['logoImage']) !!}" width="100px;" alt="{!! $value["name"] !!}">
+                    </td>
                   	<td>{!! $value["website"] !!}</td>
                   	<td>
                   		<a href="{!! url('delete',$value['partID']) !!}"><i class="fa fa-trash"></i>&nbsp;Delete

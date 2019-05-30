@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use App\Partner;
 use App\User;
 use App\Validator;
-use Input,File;
+use Input, File;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
 
@@ -57,7 +57,8 @@ class AdminController extends Controller
     public function logout()
     {
         Auth::logout();
-        return redirect()->route('admin/login');
+        // return redirect('getLoginAdmin');
+        return redirect()->route('getLoginAdmin');
     }
 
 
@@ -67,13 +68,27 @@ class AdminController extends Controller
         return view('admin-dashboard.list-partners',compact('listpartner'));
     }
 
-    // delete partner
+    // delete partner by id
     public function getDeletePartner($partID) {
+
+        // $partner = Partner::where('partID, $partID');
+        // return $partner->logoImage;
+        // File::delete('public/data/images/images_partner/' . $partner->logoImage);
+        // $partner->delete($partID);
+        // return back()->with('success','Xóa sản phẩm thành công!');
+
         $partner1 = Partner::where('partID', $partID)->first();
         File::delete('public/data/images/images_partner/'.$partner1->logoImage);
         $partner = Partner::where('partID', $partID)->delete();
+        File::delete($partID);
         return back()->with('success','Xóa sản phẩm thành công!');
+        
+        // $partner = Partner::find($partID);
+        // File::delete('public/data/images/images_partner/'.$partner->logoImage);
+        // $partner->delete($partID);
+        // return back()->with('success','Xóa sản phẩm thành công!');
     }
+
 
 
     // add partner
@@ -98,12 +113,13 @@ class AdminController extends Controller
         $partner->phone_number = $request->txtPhone;
         $partner->address = $request->txtAddress;
         $partner->email = $request->txtEmail;
-        $partner->logoImage = $request->txtLogo;
+        $partner->logoImage = $file_logo;
         $partner->website = $request->txtWebsite;
-        $request->file('txtLogo')->move('public/data/images/images_partner/',$file_logo);
+        $request->file('txtLogo')->move('data/images/images_partner/',$file_logo);
         $partner->save();
-       // return redirect()->view('admin-dashboard.managing-partners')->with('success','Thêm sản phẩm thành công!');
-        return back();
+        return redirect()->route('adminListPartner')->with('success','Thêm sản phẩm thành công!');
+        //return back();
+
     }
     
     public function deletePartner($partnerId) {

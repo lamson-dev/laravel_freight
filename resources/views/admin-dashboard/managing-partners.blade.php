@@ -17,10 +17,10 @@
         	@CSRF
           <div class="form-group">
             <div class="form-row">
-              <div class="col-md-6">
+              <!-- <div class="col-md-6">
                 <label>Partner ID: </label>
                 <input class="form-control" type="text" aria-describedby="nameHelp" placeholder="Warning: Do not input data" name="id">
-              </div>
+              </div> -->
               <div class="col-md-6">
                 <label>Partner Name: </label>
                 <input class="form-control"  type="text" aria-describedby="nameHelp" placeholder="Enter partner name" name="txtName">

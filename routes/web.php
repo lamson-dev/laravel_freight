@@ -169,3 +169,11 @@ Route::get('hash/{password}', [
     }
 ]);
 
+Route::get('booking-detail/{id}',[
+  'as'=>'BookingDetail',
+  'uses'=>'PartnerController@getBookingDetail'
+]);
+Route::post('confirm-booking',[
+  'as'=>'ConfirmBooking',
+  'uses'=>'PartnerController@postConfirmBooking'
+]);

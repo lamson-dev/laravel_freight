@@ -14,7 +14,7 @@
                 <h2 class="blogTitle">House Transfer</h2>
                 <img src="{!! url('.././public/user_style/images/demo/slide/houses.jpg') !!}" alt="" />
             </div>
-            <p>Not everyone can move their own house because it will take a lot of time and effort. Moreover, you do not have 
+            <p>Not everyone can move their own house because it will take a lot of time and effort. Moreover, you do not have
                 modern equipment dedicated to transporting large quantities of furniture to where you need it...</p>
             <a href="#">Read More</a>
         </div>
@@ -23,7 +23,7 @@
                 <h2 class="blogTitle">Moving Office</h2>
                 <img src="{!! url('.././public/user_style/images/demo/slide/off.jpg') !!}" alt="" />
             </div>
-            <p>For a company, when it is necessary to move offices to a new location, it will take a long time to arrange large-sized documents and items: 
+            <p>For a company, when it is necessary to move offices to a new location, it will take a long time to arrange large-sized documents and items:
                 tables, chairs, machines, ... and especially, if the company have rules ...</p>
             <a href="#">Read More</a>
         </div>
@@ -32,7 +32,7 @@
                 <h2 class="blogTitle">Warehouse transfer</h2>
                 <img src="{!! url('.././public/user_style/images/demo/slide/house.jpg') !!}" alt="" />
             </div>
-            <p>You do not have to spend much time waiting, the professional counselor will quote quickly after catching some basic information. 
+            <p>You do not have to spend much time waiting, the professional counselor will quote quickly after catching some basic information.
                 Especially with a staff of specialized electrical engineering, refrigeration, ...</p>
             <a href="#">Read More</a>
         </div>
@@ -41,7 +41,7 @@
                 <h2 class="blogTitle">Quality Assurance</h2>
                 <img src="{!! url('.././public/user_style/images/demo/slide/maylanh.jpg') !!}" alt="" />
             </div>
-            <p>No need to worry about shipping losses, we have professional workers in the field of 
+            <p>No need to worry about shipping losses, we have professional workers in the field of
                 refrigeration, furniture and they are very customer friendly... Besides, the things that cover your goods are also fully guaranteed...</p>
             <a href="#">Read More</a>
         </div>
@@ -136,11 +136,11 @@ $('#exampleSlider').multislider({
 
             </div>
 
-            <input style='text-align:center; margin-left: 270px' type='text' name='kilomet' id='kilomet' size='30' maxlength='5' placeholder='Số kilomet' readonly="true" />
+            <input style='text-align:center; margin-left: 270px' type='text' name='kilomet' id='kilomet' size='30' maxlength='5' placeholder='Distance (kilomet)' readonly="true" />
             <p style="font-size:13px; color:#000000; margin-top:10px; font-style: italic;" >Note: 45km or more is counted as a long-distance                         vehicle</p>
             <p style="font-size:20px; color:#3ac551; margin-top:15px; font-weight:bold;">Select the type of payload</p>
             <p style="font-size:15px; color:#333333; font-weight:bold; margin: 0 0 10px;" >
-                @foreach($TypeVehicle as $type)
+            @foreach($TypeVehicle as $type)
             <div class="form-check">
                 <label class="form-check-label">
                     <input style = 'margin-left: 270px;' type="radio" class="form-check-input" name="truck" value="{{$type['type_vehicleID']}}"> {{$type['type']}}
@@ -148,17 +148,17 @@ $('#exampleSlider').multislider({
             </div>
             @endforeach
             </p>
-            <!-- 
-    
+            <!--
+
             -->
             <button  type = "button" style='padding: 2px 15px 5px 15px;background: #b12d2d; color:#ffffff;  margin-left: 330px' onclick="calculateFee()">Calculate Fee</button>
-        </form> 
+        </form>
     </div>
 
     <div class="scrollable" id="tablefee">
 
     </div>
-    <form  method="POST" action="{{route('book')}}" role="form">
+    <form  method="POST" action="{{route('book')}}" role="form" class="form-group">
         @csrf
         <div class="one_third first">
             <label for="name">Name  <span>*</span></label>
@@ -196,32 +196,21 @@ $('#exampleSlider').multislider({
         </div>
         <div class="block clear">
             <label for="note">Annotation on your product which needs transfer</label>
-            <textarea name="note" id="note" cols="25" rows="10" required></textarea>
+            <textarea name="note" id="note" style="width:100%" rows="10" required></textarea>
         </div>
         <div>
-            <input type="submit" name="submit" value="Book">
-            &nbsp;
+          <br>
+          <center>
+            <input class="btn btn-link" type="submit" name="submit" value="Book">
             <input type="reset" name="reset" value="Reset">
+          </center>
+
+
+
         </div>
 
     </form>
-    <h1 style='margin-top: 20px'> 1. Table of price for truck  </h1>
-    <table border="1" style="width:100%">
-        <tbody>
-            <tr>
-                <th style="text-align:center"><span style="color:#ffffff; font-family:tahoma,geneva,sans-serif"><span style="font-size:14px">Branch</span></span></th>
-                <th style="text-align:center"><span style="color:#ffffff"><span style="font-size:14px"><span style="font-family:tahoma,geneva,sans-serif">Gi&aacute; Description</span></span></span></th>
-                <th style="text-align:center"><span style="color:#ffffff"><span style="font-size:14px"><span style="font-family:tahoma,geneva,sans-serif">price/km</span></span></span></th>
-                <th style="text-align:center"><span style="color:#ffffff"><span style="font-size:14px"><span style="font-family:tahoma,geneva,sans-serif">Total</span></span></span></th>
-                <th style="text-align:center"><span style="color:#ffffff; font-family:tahoma,geneva,sans-serif"><span style="font-size:14px">Options</span></span></th>
-            </tr>
-    
-            <tr>
-               
-            </tr>
-        
-        </tbody>
-    </table>
+
     <!-- ################################################################################################ -->
 </div>
 </div>

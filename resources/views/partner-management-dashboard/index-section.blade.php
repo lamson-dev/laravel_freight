@@ -6,7 +6,7 @@
                 <p class="text-white mt-5 mb-5">Welcome back, <b>Admin</b></p>
             </div>
         </div>
-         row 
+         row
         <div class="row tm-content-row">
             <div class="col-sm-12 col-md-12 col-lg-6 col-xl-6 tm-block-col">
                 <div class="tm-bg-primary-dark tm-block">
@@ -116,8 +116,8 @@
                         <tr>
                             <th scope="col">Book NO.</th>
                             <th scope="col">Date</th>
-                            <th scope="col">Note</th>
                             <th scope="col">Status</th>
+                            <th scope="col">Note</th>
     <!--                            <th scope="col">LOCATION</th>
                             <th scope="col">DISTANCE</th>
                             <th scope="col">START DATE</th>
@@ -126,17 +126,29 @@
                     </thead>
                     <tbody>
                         @foreach($bill as $bil)
-                 
+
                         <tr>
-                            <th scope="row"><b>{{$bil->billID}}</b></th>
+                            <th scope="row">
+                              <b>
+
+                                  <a onclick="getBookingDetail({{$bil->billID}})" class="alert alert-danger">{{$bil->billID}}</a>
+
+
+                            </b></th>
                             <td>
                                 <div class="tm-status-circle moving">
                                 </div>{{$bil->date}}
                             </td>
-                            <td><b>{{$bil->status}}</b></td>
+                            <td><b>
+                              @if($bil->status == 'unconfimred')
+                                <span style="color: green">{{$bil->status}}</span>
+                              @else
+                                <span style="color: red">{{$bil->status}}</span>
+                              @endif
+                            </b></td>
                             <td><b>{{$bil->note}}</b></td>
                         </tr>
-                 
+
                     @endforeach
                     </tbody>
                 </table>
@@ -145,14 +157,16 @@
         <div class="col-7 tm-block-col">
             <div class="tm-bg-primary-dark tm-block tm-block-taller tm-block-scroll">
                 <h2 class="tm-block-title">Detail Booking</h2>
-                <form action="" class="tm-signup-form row">
+                <form action="{{route('ConfirmBooking')}}" method="POST" class="tm-signup-form row">
+                  @CSRF
+                  <input type="hidden" name="id-booking" id="id-booking" value="">
                     <div class="form-group col-lg-6">
                         <label for="name">Customer Name</label>
                         <input
                             id="cus-name"
                             name="name"
                             type="text"
-                            class="form-control validate" readonly=""
+                            class=" validate" readonly=""
                             />
                     </div>
                     <div class="form-group col-lg-6">
@@ -161,7 +175,7 @@
                             id="email"
                             name="email"
                             type="email"
-                            class="form-control validate" readonly=""
+                            class="validate" readonly=""
                             />
                     </div>
                     <div class="form-group col-lg-6">
@@ -170,16 +184,16 @@
                             id="address"
                             name="address"
                             type="text"
-                            class="form-control validate" readonly=""
+                            class=" validate" readonly=""
                             />
                     </div>
                     <div class="form-group col-lg-6">
-                        <label for="address">Distance:</label>
+                        <label for="distance">Distance:</label>
                         <input
                             id="distance"
                             name="distance"
                             type="text"
-                            class="form-control validate" readonly=""
+                            class=" validate" readonly=""
                             />
                     </div>
                     <div class="form-group col-lg-6">
@@ -188,7 +202,7 @@
                             id="start"
                             name="start"
                             type="text"
-                            class="form-control validate" readonly=""
+                            class=" validate" readonly=""
                             />
                     </div>
                     <div class="form-group col-lg-6">
@@ -197,7 +211,7 @@
                             id="end"
                             name="end"
                             type="text"
-                            class="form-control validate" readonly=""
+                            class=" validate" readonly=""
                             />
                     </div>
 
@@ -213,6 +227,7 @@
 
 
                     <button
+                        id="btn-confirm"
                         type="submit"
                         class="btn btn-primary btn-block text-uppercase"
                         >
@@ -220,7 +235,7 @@
                     </button>
             </div>
             </form>
-        </div>  
+        </div>
     </div>
 </div>
 
@@ -230,16 +245,34 @@
 
 @section('index-script')
 <script>
-    function getMessage() {
-        alert();
-//            $.ajax({
-//               type:'POST',
-//               url:'/getmsg',
-//               data:'_token = <?php echo csrf_token() ?>',
-//               success:function(data) {
-//                  $("#msg").html(data.msg);
-//               }
-//            });
+    function getBookingDetail(id) {
+        // alert();
+           $.ajax({
+              type:'GET',
+              url:'booking-detail/'+id,
+              dataType:'json',
+              success:function(data) {
+                //$("#cus-name").val('avbxcasd');
+                $("#id-booking").val(data.r_bill['billID']);
+                $("#cus-name").val(data.r_bill_detail[0]['name']);
+                $("#address").val(data.r_bill_detail[0]['address']);
+                $("#email").val(data.r_bill_detail[0]['phone_number']);
+
+                $("#distance").val(data.r_bill_detail2[0]['distance']);
+                $("#start").val(data.r_bill_detail2[0]['begin_journey']);
+                $("#end").val(data.r_bill_detail2[0]['end_journey']);
+                $("#price").val(data.r_bill_detail2[0]['price']);
+
+                // var len = data.r_bill_detail.length;
+                // var len2 = data.r_bill.lenght;
+                //  if (len > 0 || len2 > 0) {
+                //    for (var i = 0; i < len; i++) {
+                //      $("#cus-name").val(data.r_bill[i]['name']);
+                //    }
+                //
+                //  }
+              }
+           });
     }
 
     Chart.defaults.global.defaultFontColor = 'white';

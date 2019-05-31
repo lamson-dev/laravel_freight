@@ -17,7 +17,7 @@
                   <td style="text-align:center"><span style="font-size:14px"><span style="font-family:tahoma,geneva,sans-serif">{{$vehicle->price * $distance}} vnd</span></span></td>
                   <td style="text-align:center"><span style="font-size:14px"><span style="font-family:tahoma,geneva,sans-serif">
                   <a href="{{ route('show',['vehicle'=>$vehicle->vehicleID, 'distance'=>$distance])}}">Detail</a><br>
-                  <a href="#">Book Now</a>
+                  
                   </span></span></td>
                 </tr>
                 @endforeach

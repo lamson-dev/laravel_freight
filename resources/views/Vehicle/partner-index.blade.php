@@ -22,8 +22,7 @@
 <body id="reportsPage">
     <div class="" id="home">
         <!-- nave bar -->
-        @include('partner-management-dashboard.components.header')
-        <!-- main content -->
+        @include('Vehicle.components.header')
         @yield('index-section-content')
         @yield('vehicle-section-content')
         @yield('account-section-content')
@@ -31,7 +30,7 @@
         @yield('edit-section-content')
         @yield('add-vehicle-type-section-content')
         <!-- footer -->
-        @include('partner-management-dashboard.components.footer')
+        @include('Vehicle.components.footer')
     </div>
 
     <script src="{{asset('partner-dashboard/js/jquery-3.3.1.min.js')}}"></script>

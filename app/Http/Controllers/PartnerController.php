@@ -13,10 +13,7 @@ class PartnerController extends Controller {
      * @return \Illuminate\Http\Response
      */
     public function index() {
-        //
-        // return view ('welcome');
-        return view('partner-management-dashboard.index-section');
-        //return view('partner-management-dashboard.index-section');
+        return view('Vehicle.index-section'); 
     }
 
     public function getVehicleView() {

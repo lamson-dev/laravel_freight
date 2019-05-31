@@ -36,36 +36,52 @@ Route::group(['prefix' => 'user'], function () {
 
 });
 
+
 //routes of Partner
-Route::get('partner', [
-    'as' => 'getIndexPartner',
-    'uses' => 'PartnerController@index'
-]);
 
-Route::get('partner/vehicle', [
-    'as' => 'partnerVehicle',
-    'uses' => 'PartnerController@getVehicleView'
-]);
+Route::group(['prefix' => 'partner'], function () {
 
-Route::get('partner/account',[
-  'as'=>'partnerAccount',
-  'uses'=>'PartnerController@getAccountView'
-]);
+    Route::get('showIndex', [
+        'as' => 'getIndexPartner',
+        'uses' => 'VehicleControlle@index'
+    ]);
+    
+    Route::get('ShowVehicle', [
+        'as' => 'getVehicle',
+        'uses' => 'VehicleControlle@getVehicleView'
+    ]);
 
-Route::get('partner/g-vehicle-type',[
-    'as'=>'partnerAddVehicleType',
-    'uses'=>'PartnerController@getAddVehicleTypeView'
-]);
+    Route::get('add',[
+        'as'=>'addVehicle',
+            'uses'=>'VehicleControlle@getAddVehicle'
+    ]);
+        
 
-Route::post('partner/add-vehicle-type',[
-   'as'=>'partnerInsertVehicleType',
-    'uses'=>'PartnerController@addVehicleType'
-]);
+    Route::post('add',[
+        'as'=>'postaddVehicel',
+            'uses'=>'VehicleControlle@postaddVehicle'
+    ]);
+         
+    Route::get('update/{vehicleID}',[
+        'as'=>'getupdate',
+        'uses'=>'VehicleControlle@getUpdate'
+      ]);
+      
+    Route::post('update/{vehicleID}',[
+        'as'=>'postupdate',
+        'uses'=>'VehicleControlle@postUpdate'
+    ]);
 
-Route::get('partner/g-vehicle',[
-'as'=>'partnerAddVehicle',
-    'uses'=>'PartnerController@getAddVehicleView'
-]);
+    Route::get('delete/{vehicleID}',[
+        'as'=>'getdelete',
+        'uses'=>'VehicleControlle@getdelete'
+    ]);
+});
+
+
+
+
+
 
 
 

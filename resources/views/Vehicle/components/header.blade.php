@@ -34,14 +34,14 @@
                     </div>
                 </li>-->
                 <li class="nav-item">
-                    <a class="nav-link" href="{{route('partnerVehicle')}}">
+                    <a class="nav-link" href="{{route('getVehicle')}}">
                         <i class="fa fa-car"></i>
                         Vehicles
                     </a>
                 </li>
 
                 <li class="nav-item">
-                    <a class="nav-link" href="{{route('partnerAccount')}}">
+                    <a class="nav-link" href="#">
                         <i class="far fa-user"></i>
                         Accounts
                     </a>

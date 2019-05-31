@@ -1,4 +1,4 @@
-@extends('partner-management-dashboard.partner-index')
+@extends('Vehicle.partner-index')
 @section('index-section-content')
 <div class="container">
     <!--    <div class="row">

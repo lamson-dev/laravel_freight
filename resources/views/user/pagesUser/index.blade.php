@@ -111,9 +111,7 @@ $('#exampleSlider').multislider({
                 <div id="search">
                     <input type="text" name="addr_start" value="" id="add_start" size="58" onkeypress="searchStartAddr(this.value);"  placeholder="starting address"/>
                     <input type="text" name="addr_end" value="" id="add_end" size="58" onkeypress="searchEndAddr(this.value)"  placeholder="ending address"/>
-
                     <button type="button" onclick="calculateDistanceStartEnd()">OK</button>
-
                     <div id="results" style="overflow-y: scroll; max-height: 320px;"></div>
                 </div>
 
@@ -137,10 +135,10 @@ $('#exampleSlider').multislider({
                 <div id="map"></div>
 
             </div>
-            Please enter the number Kilomet need to transport:</p>
-        <input style='text-align:center; margin-left: 270px' type='text' name='kilomet' id='kilomet' size='30' maxlength='5' placeholder='Số kilomet' readonly="true" />
+
+            <input style='text-align:center; margin-left: 270px' type='text' name='kilomet' id='kilomet' size='30' maxlength='5' placeholder='Số kilomet' readonly="true" />
             <p style="font-size:13px; color:#000000; margin-top:10px; font-style: italic;" >Note: 45km or more is counted as a long-distance                         vehicle</p>
-            <p style="font-size:20px; color:#3ac551; margin-top:15px; font-weight:bold;">Select the type of                         payload</p>
+            <p style="font-size:20px; color:#3ac551; margin-top:15px; font-weight:bold;">Select the type of payload</p>
             <p style="font-size:15px; color:#333333; font-weight:bold; margin: 0 0 10px;" >
                 @foreach($TypeVehicle as $type)
             <div class="form-check">
@@ -160,51 +158,70 @@ $('#exampleSlider').multislider({
     <div class="scrollable" id="tablefee">
 
     </div>
-    <div id="comments">
-       
-        <h1 style='margin-top: 20px'> 4. Book Service Now</h1>
-        <form action="#" method="post">
-            <div class="one_third first">
-                <label for="name">Name  <span>*</span></label>
-                <input type="text" name="name" id="name" value="" size="22" required>
-            </div>
-            <div class="one_third">
-                <label for="phone">Phone number<span>*</span></label>
-                <input type="text" name="phone" id="phone" value="" size="11" required>
-            </div>
-            <div class="one_third">
-                <label for="address">Address</label>
-                <input type="text" name="address" id="address" value="" size="22">
-            </div>
-            <div class="one_third first">
-                <label for="klmet">Number Kilomet <span>*</span></label>
-                <input type="text" name="klmet" id="klmet" value="" size="22" required>
-            </div>
-            <div class="one_third">
-                <label for="LoaiXe">Type of Vehicle <span>*</span></label>
-                <select name="LoaiXe" id="LoaiXe">
-                    <option value="truck-500kg">Truck 500Kg</option>
-                    <option value="truck-750kg">Truck 750Kg</option>
-                    <option value="truck-1500kg">Truck 1.5 Ton</option>
-                    <option value="truck-1900kg">Truck 1.9 Ton</option>
-                    <option value="truck-2000kg">Truck 2 Ton ( Container of truck 6m )  </option>
-                </select>
-            </div>
-            <div class="one_third">
-                <label for="Gia Xe">Price</label>
-                <input type="text" name="price" id="price" value="" size="22" readonly>
-            </div>
-            <div class="block clear">
-                <label for="note">Annotation on your product which needs transfer</label>
-                <textarea name="note" id="note" cols="25" rows="10"></textarea>
-            </div>
-            <div>
-                <input type="submit" name="submit" value="Book">
-                &nbsp;
-                <input type="reset" name="reset" value="Reset">
-            </div>
-        </form>
-    </div>
+    <form  method="POST" action="{{route('book')}}" role="form">
+        @csrf
+        <div class="one_third first">
+            <label for="name">Name  <span>*</span></label>
+            <input type="text" name="name" id="name" value="" size="22" required>
+        </div>
+        <div class="one_third">
+            <label for="phone">Phone number<span>*</span></label>
+            <input type="text" name="phone" id="phone" value="" size="11" required>
+        </div>
+        <div class="one_third">
+            <label for="address">Address</label>
+            <input type="text" name="address" id="address" value="" size="22">
+        </div>
+        <div class="one_third first">
+            <label for="Starting">Starting point  <span>*</span></label>
+            <input type="text" name="Starting" id="Starting" value="" size="22" required>
+        </div>
+        <div class="one_third">
+            <label for="Ending">Ending point<span>*</span></label>
+            <input type="text" name="ending" id="ending" value="" size="11" required>
+        </div>
+        <div class="one_third">
+            <label for="Date">Date</label>
+            <input type="date" name="Date" id="Date" value="" size="22">
+        </div>
+        <div class="one_third first">
+            <label for="klmet">Number Kilomet <span>*</span></label>
+            <input type="text" name="klmet" id="klmet" value="" size="22" readonly>
+        </div>
+
+
+        <div class="one_third">
+            <label for="Gia Xe">Price</label>
+            <input type="text" name="price" id="price" value="" size="22" readonly><span> $ </span>
+        </div>
+        <div class="block clear">
+            <label for="note">Annotation on your product which needs transfer</label>
+            <textarea name="note" id="note" cols="25" rows="10" required></textarea>
+        </div>
+        <div>
+            <input type="submit" name="submit" value="Book">
+            &nbsp;
+            <input type="reset" name="reset" value="Reset">
+        </div>
+
+    </form>
+    <h1 style='margin-top: 20px'> 1. Table of price for truck  </h1>
+    <table border="1" style="width:100%">
+        <tbody>
+            <tr>
+                <th style="text-align:center"><span style="color:#ffffff; font-family:tahoma,geneva,sans-serif"><span style="font-size:14px">Branch</span></span></th>
+                <th style="text-align:center"><span style="color:#ffffff"><span style="font-size:14px"><span style="font-family:tahoma,geneva,sans-serif">Gi&aacute; Description</span></span></span></th>
+                <th style="text-align:center"><span style="color:#ffffff"><span style="font-size:14px"><span style="font-family:tahoma,geneva,sans-serif">price/km</span></span></span></th>
+                <th style="text-align:center"><span style="color:#ffffff"><span style="font-size:14px"><span style="font-family:tahoma,geneva,sans-serif">Total</span></span></span></th>
+                <th style="text-align:center"><span style="color:#ffffff; font-family:tahoma,geneva,sans-serif"><span style="font-size:14px">Options</span></span></th>
+            </tr>
+    
+            <tr>
+               
+            </tr>
+        
+        </tbody>
+    </table>
     <!-- ################################################################################################ -->
 </div>
 </div>
@@ -213,5 +230,74 @@ $('#exampleSlider').multislider({
 <div class="clear"></div>
 </main>
 </div>
+<script>
+    function calculateFee() {
+        var distance = document.getElementById("kilomet").value;
+        var truck = document.getElementsByName("truck");
+        var startPoint = document.getElementById("add_start").value;
+        var endPoint = document.getElementById("add_end").value;
+
+        document.getElementById("Starting").value = startPoint;
+        document.getElementById("ending").value = endPoint;
+        document.getElementById("klmet").value = distance;
+
+        var idtype = 0;
+        for (var i = 0; i < truck.length; i++) {
+            if (truck[i].checked === true) {
+                var idtype = truck[i].value;
+            }
+        }
+        if (truck <= 0)
+        {
+            error("không tồn tại xe này");
+        } else {
+            $.ajax({
+                type: "GET",
+                url: "{{route('user/calculate')}}",
+                data: "Type=" + idtype + "& distance=" + distance,
+                success: function (data) {
+                    console.log(data);
+                    $('#price').val(data.price);
+                },
+                error: function (data) {
+                    console.log('Error:', data);
+                }
+            });
+        }
+    }
+
+    function bookservice() {
+        var starting = document.getElementsById("add_start").value;
+        var ending = document.getElementsById("add_end").value;
+        var distance = document.getElementById("kilomet").value;
+
+        var truck = document.getElementsByName("truck");
+        var idtype = 0;
+        for (var i = 0; i < truck.length; i++) {
+            if (truck[i].checked === true) {
+                var idtype = truck[i].value;
+            }
+        }
+        if (truck <= 0)
+        {
+            error("không tồn tại xe này");
+        } else {
+            $.ajax({
+                type: "GET",
+                url: "{{route('user/calculate')}}",
+                data: "Type=" + idtype + "& distance=" + distance,
+                success: function (data) {
+                    console.log(data);
+                    $('#tablefee').html(data);
+                },
+                error: function (data) {
+                    console.log('Error:', data);
+                }
+            });
+        }
+    }
+
+
+</script>
 <script type="text/javascript" src="{{asset('dist-lib-api/customize-api.js')}}"></script>
 @endsection

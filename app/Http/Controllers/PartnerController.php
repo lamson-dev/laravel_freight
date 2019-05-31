@@ -4,7 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
-
+use App\Partner;
+use App\Bill;
 class PartnerController extends Controller {
 
     /**
@@ -13,10 +14,11 @@ class PartnerController extends Controller {
      * @return \Illuminate\Http\Response
      */
     public function index() {
-        //
-        // return view ('welcome');
-        return view('partner-management-dashboard.index-section');
-        //return view('partner-management-dashboard.index-section');
+        $bill = Bill::all();
+        return view('partner-management-dashboard.index-section',[
+            'bill'=>$bill
+        ]);
+       
     }
 
     public function getVehicleView() {

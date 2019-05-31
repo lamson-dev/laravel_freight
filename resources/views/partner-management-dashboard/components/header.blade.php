@@ -18,7 +18,7 @@
                         <span class="sr-only">(current)</span>
                     </a>
                 </li>
-                <li class="nav-item dropdown">
+<!--                <li class="nav-item dropdown">
 
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
                         aria-haspopup="true" aria-expanded="false">
@@ -32,7 +32,7 @@
                         <a class="dropdown-item" href="#">Weekly Report</a>
                         <a class="dropdown-item" href="#">Yearly Report</a>
                     </div>
-                </li>
+                </li>-->
                 <li class="nav-item">
                     <a class="nav-link" href="{{route('partnerVehicle')}}">
                         <i class="fa fa-car"></i>

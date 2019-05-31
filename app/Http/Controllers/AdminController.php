@@ -46,7 +46,7 @@ class AdminController extends Controller
         if(Auth::attempt(['email' => $request->email,
             'password' => $request->password]))
         {
-            return redirect('admin/managing-partner');
+            return redirect('partner');
         }
         else {
             return back()->with('error','Wrong login details');

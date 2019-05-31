@@ -12,11 +12,23 @@ class UsersTablesSeeder extends Seeder
      */
     public function run()
     {
-        User::create([
-        	'name' => 'Dang Thiet',
+        DB::table('users')->insert([
+          'partID'=>1,
         	'email' => 'thiethuynh.dev@gmail.com',
         	'password' =>Hash::make('password'),
         	'remember_token' =>str_random(10),
+        ],
+        [
+          'partID'=>2,
+          'email' => 'thiethuynh.dev1@gmail.com',
+          'password' =>Hash::make('password'),
+          'remember_token' =>str_random(10),
+        ],
+        [
+          'partID'=>3,
+          'email' => 'thiethuynh.dev2@gmail.com',
+          'password' =>Hash::make('password1'),
+          'remember_token' =>str_random(10),
         ]);
     }
 }

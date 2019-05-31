@@ -12,7 +12,7 @@ use \Illuminate\Auth\Authenticatable;
 
 use Notifiable;
     protected $table = 'users';// ten table trong database
-    protected $fillable = ['id', 'name','email','email_verified_at','password'];
+    protected $fillable = ['id','email','email_verified_at','password'];
     public $timestamps = True; //thiet lap
 
 }

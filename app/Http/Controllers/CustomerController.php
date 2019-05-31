@@ -20,7 +20,7 @@ class CustomerController extends Controller
     public function selectType(){
         $TypeVehicle = TypeVehicle::select('type_vehicleID','type')->get()->toArray();
         return view('user.pagesUser.index', compact('TypeVehicle'));
-    } 
+    }
     public function selectTypeintoHeader(){
         $TypeVehicle = TypeVehicle::select('type_vehicleID','type')->get()->toArray();
         return view('user.masterUser.header', compact('TypeVehicle'));
@@ -43,7 +43,7 @@ class CustomerController extends Controller
         $a = Array(($vehicle->price * $distance));
            $array[$key] = $a;
            $totalPrice = $vehicle->price * $distance;
-            
+
         }
       return  response()->json([
           'Vehicle'=>$Vehicle,
@@ -74,16 +74,16 @@ class CustomerController extends Controller
         $customer->email = "-";
         $customer->address = $req->address;
         $customer->save();
-        
+
         $bill = new Bill;
         $bill->date = $req->Date;
         $bill->status = "unconfimred";
         $bill->note = $req->note;
         $bill->custID = $customer->id;
         $bill->save();
-      
+
         $bill_detail = new BillDetail;
-      
+
         $bill_detail->price = $req->price;
         $bill_detail->quantity = 1;
         $bill_detail->distance = $req->klmet;
@@ -91,10 +91,10 @@ class CustomerController extends Controller
         $bill_detail->end_journey = $req->ending;
         $bill_detail->billID = $bill->id;
         $bill_detail->save();
-        
+
         $TypeVehicle = TypeVehicle::select('type_vehicleID','type')->get()->toArray();
         //return view('user.pagesUser.index', compact('TypeVehicle'));
-        return redirect();
+        return back();
     }
 
     /**
@@ -115,7 +115,7 @@ class CustomerController extends Controller
     public function create()
     {
         //
-        
+
     }
 
     /**
@@ -174,6 +174,6 @@ class CustomerController extends Controller
         //
     }
 
-    
+
 
 }

@@ -33,36 +33,7 @@
 
 <script>
 
-  function calculateFee(){
-    var distance = document.getElementById("kilomet").value;
-    var truck = document.getElementsByName("truck");
-    var idtype = 0;
-    for (var i = 0; i < truck.length; i++){
-            if (truck[i].checked === true){
-                var idtype = truck[i].value;
-            }
-        }
-   
-  if(truck <= 0)
-     { 
-       error("không tồn tại xe này"); 
-     }
-     else {
-       $.ajax({
-         type: "GET",
-         url :"{{route('user/calculate')}}", 
-         data: "Type="+ idtype + "& distance="+ distance,
-         success: function (data) {
-          console.log(data);
-           $('#tablefee').html(data);
-         },
-         error: function (data) {
-          console.log('Error:', data);
-         }
-       });
-     }
-   }
-
+  
  </script>
 </body>
 </html>

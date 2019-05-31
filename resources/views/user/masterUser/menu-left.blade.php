@@ -37,7 +37,7 @@
 
 <!-- ################################################### -->
     <div class="sdb_holder">
-        <div class="block_services bg_contact" style="background-image: url('{!! url ('.././public/user_style/images/demo/tuvan.jpg') !!}')">
+        <div class="block_services bg_contact" style="background-image: url('{{!! url ('.././public/user_style/images/demo/tuvan.jpg') !!}}')">
           <h3 class="kmt_title_left">
           CUSTOMER SERVICES
             </h3>

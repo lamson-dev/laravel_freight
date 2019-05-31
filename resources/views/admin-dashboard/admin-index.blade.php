@@ -23,6 +23,8 @@
     @include('admin-dashboard.components.header')
     <div class="content-wrapper">
     @yield('admin-index-section-content')
+    @yield('managing-partners-section-content')
+    @yield('list-partners-section-content')
 
     @include('admin-dashboard.components.footer')
     <!-- footer -->

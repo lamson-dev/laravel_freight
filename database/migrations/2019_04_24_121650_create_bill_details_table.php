@@ -17,7 +17,7 @@ class CreateBillDetailsTable extends Migration
             $table->bigIncrements('bill_deID');
             $table->integer('price');
             $table->integer('quantity');
-            $table->integer('distance');
+            $table->float('distance',8,2);
             $table->string('begin_journey',255);
             $table->string('end_journey',255);
             $table->unsignedBigInteger('billID');

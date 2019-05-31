@@ -11,7 +11,7 @@
       <li class="one_quarter">
         <div class="block clear"><a href="#"><i class="fas fa-clock"></i></a> <span>Active Hours <strong>08.00am - 18.00pm</strong></span></div>
       </li>
-      <li class="one_quarter"><a class="btn" href="#"><strong>Log in</strong></a></li>
+      <li class="one_quarter"><a class="btn" href="{{route('getLogoutAdmin')}}"><strong>Log in</strong></a></li>
     </ul>
     <!-- ################################################################################################ -->
   </section>

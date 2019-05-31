@@ -16,7 +16,7 @@ class CreateBillsTable extends Migration
         Schema::create('bills', function (Blueprint $table) {
             $table->bigIncrements('billID');
             $table->date('date');
-            $table->string('feedback',255);
+            $table->string('status',255);
             $table->string('note',255);
             $table->unsignedBigInteger('custID');
             $table->foreign('custID')->references('custID')->on('customers');

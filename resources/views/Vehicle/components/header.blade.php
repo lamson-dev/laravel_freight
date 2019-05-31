@@ -12,13 +12,13 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mx-auto h-100">
                 <li class="nav-item">
-                    <a class="nav-link active" href="#">
+                    <a class="nav-link active" href="{{route('getIndexPartner')}}">
                         <i class="fas fa-tachometer-alt"></i>
                         Dashboard
                         <span class="sr-only">(current)</span>
                     </a>
                 </li>
-                <li class="nav-item dropdown">
+<!--                <li class="nav-item dropdown">
 
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
                         aria-haspopup="true" aria-expanded="false">
@@ -32,7 +32,7 @@
                         <a class="dropdown-item" href="#">Weekly Report</a>
                         <a class="dropdown-item" href="#">Yearly Report</a>
                     </div>
-                </li>
+                </li>-->
                 <li class="nav-item">
                     <a class="nav-link" href="{{route('getVehicle')}}">
                         <i class="fa fa-car"></i>
@@ -63,7 +63,7 @@
             </ul>
             <ul class="navbar-nav">
                 <li class="nav-item">
-                    <a class="nav-link d-block" href="login.html">
+                    <a class="nav-link d-block" href="{{route('home')}}">
                         Partner, <b>Logout</b>
                     </a>
                 </li>

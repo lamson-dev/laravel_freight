@@ -4,7 +4,10 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
-
+use App\Partner;
+use App\Bill;
+use App\Customer;
+use App\BillDetail;
 class PartnerController extends Controller {
 
     /**
@@ -13,7 +16,15 @@ class PartnerController extends Controller {
      * @return \Illuminate\Http\Response
      */
     public function index() {
+<<<<<<< HEAD
         return view('Vehicle.index-section'); 
+=======
+        $bill = Bill::orderBy('billID', 'DESC')->get();
+        return view('partner-management-dashboard.index-section',[
+            'bill'=>$bill
+        ]);
+
+>>>>>>> 5a1c07d8219c5cb15b919696b06c973b9cd70bec
     }
 
     public function getVehicleView() {
@@ -76,6 +87,30 @@ class PartnerController extends Controller {
         ]);
     }
 
+    public function getBookingDetail($id)
+    {
+      $bill_infor = Bill::where('billID', $id)->first();
+      $bill_detail = DB::table('bills')
+              ->leftJoin('customers', 'customers.custID', 'bills.custID')
+              ->select('customers.name', 'customers.address', 'customers.email','customers.phone_number')
+              ->where('bills.billID',$id)
+              ->get();
+      //$bill_detail = Bill_detail::find($id);
+     // echo "$bill_detail";
+     $bill_detail2 = BillDetail::where('billID', $id)->get();
+      return response()->json([
+                  'r_bill_detail' => $bill_detail,
+                  'r_bill' => $bill_infor,
+                  'r_bill_detail2' => $bill_detail2
+      ]);
+    }
+    public function postConfirmBooking(Request $request)
+    {
+      $billID= $request->input('id-booking');
+      Bill::where('billID',$billID)->update(['status'=>'confirmed']);
+
+      return back();
+    }
     /**
      * Show the form for creating a new resource.
      *

@@ -16,15 +16,11 @@ class PartnerController extends Controller {
      * @return \Illuminate\Http\Response
      */
     public function index() {
-<<<<<<< HEAD
-        return view('Vehicle.index-section'); 
-=======
         $bill = Bill::orderBy('billID', 'DESC')->get();
         return view('partner-management-dashboard.index-section',[
             'bill'=>$bill
         ]);
 
->>>>>>> 5a1c07d8219c5cb15b919696b06c973b9cd70bec
     }
 
     public function getVehicleView() {

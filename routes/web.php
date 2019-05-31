@@ -81,31 +81,9 @@ Route::group(['prefix' => 'partner'], function () {
 });
 
 
-<<<<<<< HEAD
 
 
 
-=======
-Route::get('partner/account', [
-    'as' => 'partnerAccount',
-    'uses' => 'PartnerController@getAccountView'
-]);
-
-Route::get('partner/g-vehicle-type', [
-    'as' => 'partnerAddVehicleType',
-    'uses' => 'PartnerController@getAddVehicleTypeView'
-]);
-
-Route::post('partner/add-vehicle-type', [
-    'as' => 'partnerInsertVehicleType',
-    'uses' => 'PartnerController@addVehicleType'
-]);
-
-Route::get('partner/g-vehicle', [
-    'as' => 'partnerAddVehicle',
-    'uses' => 'PartnerController@getAddVehicleView'
-]);
->>>>>>> 5a1c07d8219c5cb15b919696b06c973b9cd70bec
 
 
 

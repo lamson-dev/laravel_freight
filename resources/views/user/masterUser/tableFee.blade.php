@@ -16,13 +16,8 @@
                   <td style="text-align:center"><span style="font-size:14px"><span style="font-family:tahoma,geneva,sans-serif">{{$vehicle->price}} vnd</span></span></td>
                   <td style="text-align:center"><span style="font-size:14px"><span style="font-family:tahoma,geneva,sans-serif">{{$vehicle->price * $distance}} vnd</span></span></td>
                   <td style="text-align:center"><span style="font-size:14px"><span style="font-family:tahoma,geneva,sans-serif">
-<<<<<<< HEAD
                   <a href="{{ route('show',['vehicle'=>$vehicle->vehicleID, 'distance'=>$distance])}}">Detail</a><br>
                   
-=======
-                  <button><a href="{{ route('show',['vehicle'=>$vehicle->vehicleID, 'distance'=>$distance])}}">Detail</a></button><br>
-                  <button>Book Now</button>
->>>>>>> 5a1c07d8219c5cb15b919696b06c973b9cd70bec
                   </span></span></td>
                 </tr>
                 @endforeach
